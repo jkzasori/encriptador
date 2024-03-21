@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador José Támara</title>
+    <link rel="stylesheet" href="./index.css"/>
+</head>
+<body>
+    <main>
+
+        <section class="encrypt">
+            <img class="logo" src="./assets//img//logoEncrypt.png" alt="logoEncrypt" />
+            <div class="content">
+                <textarea id="textEncryptDecrypt" placeholder="Ingrese el texto aquí"></textarea>
+                <div class="noteExclamation">
+                    <img src="./assets//img/bi_exclamation-circle-fill.png" alt="exclamation" />
+                    <span>Solo letras minúsculas y sin acentos</span>
+                </div>
+                <div class="encrypt-button">
+                    <button class="btn-encrypt" onclick="encrypt()">Encriptar</button>
+                    <button class="btn-decrypt" onclick="decrypt()">Desencriptar</button>
+                </div>
+            </div>
+        </section>
+        <section class="textResult">
+            <div class="content-noResult" id="result">
+                <img src="./assets//img//munecoEncrypt.png" alt="munecoEncrypt" />
+                <div class="message">
+                    <h2>Ningún mensaje fue encontrado</h2>
+                    <h3>Ingresa el texto que desees encriptar o desencriptar.</h3>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="./index.js"></script>
+</body>
+</html>
