@@ -25,7 +25,7 @@ function ValidationTextArea(textareaId) {
     function handleInput() {
         clearTimeout(timeoutId);
         timeoutId = setTimeout(() => {
-            const textoValidado = textarea.value.replace(/[A-Z¡!@#$%^&*(),.?":{}|<>]/g, '');
+            const textoValidado = textarea.value.replace(/[A-ZÁÉÍÓÚÜÑ¡!@#$%^&*(),.?":{}|<>áéíóúü]/g, '');
             if (textoValidado !== textarea.value) {
                 alert("¡No se aceptan mayúsculas ni caracteres especiales!");
                 textarea.value = textoValidado;
