@@ -20,16 +20,17 @@ const REPLACEMENTS = [
  */
 function ValidationTextArea(textareaId) {
     const textarea = document.getElementById(textareaId);
+    let timeoutId;
 
-    function handleInput(event) {
-        const forbiddenCharacters = /[áéíóúÁÉÍÓÚüñÜÑ!@#$%^&*()_+=[\]{};':"\\|,.<>/?~`]/;
-        const inputValue = textarea.value;
-        const lastTypedCharacter = inputValue.slice(-1);
-
-        if (lastTypedCharacter.match(/[A-ZáéíóúÁÉÍÓÚüñÜÑ]/) || forbiddenCharacters.test(lastTypedCharacter)) {
-            textarea.value = inputValue.slice(0, -1); // Eliminar el último carácter ingresado
-            alert("Error")
-        }
+    function handleInput() {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+            const textoValidado = textarea.value.replace(/[A-Z¡!@#$%^&*(),.?":{}|<>]/g, '');
+            if (textoValidado !== textarea.value) {
+                alert("¡No se aceptan mayúsculas ni caracteres especiales!");
+                textarea.value = textoValidado;
+            }
+        }, 200); // Retraso de 200 milisegundos (ajustable según tus necesidades)
     }
 
     textarea.addEventListener('keydown', handleInput);
